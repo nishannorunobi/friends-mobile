@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "com.hello.nishan"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+}
+
+/*repositories {
+    jcenter()
+    maven { url '/home/nishan/development/android-sdk-linux/extras/android/m2repository' }
+}*/
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    // https://mvnrepository.com/artifact/net.sf.bluecove/bluecove
+    compile group: 'net.sf.bluecove', name: 'bluecove', version: '2.1.0'
+
+    // compile 'com.android.support:support-annotations:24.2.0'
+}
