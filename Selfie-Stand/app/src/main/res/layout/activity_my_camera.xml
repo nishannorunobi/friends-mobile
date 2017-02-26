@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_home"
+    android:padding="5dp"
+    android:weightSum="85"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_weight="75"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:background="@color/colorAccent"
+            android:id="@+id/fl_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="10"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/flash_on_btn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/on_btn"
+                android:visibility="visible"></ImageView>
+            <ImageView
+                android:id="@+id/flash_off_btn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/off_btn"
+                android:visibility="invisible"></ImageView>
+        </RelativeLayout>
+
+
+        <Button android:id="@+id/btn_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="5dp"
+            android:text="Call" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/camera_on_btn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/on_btn"
+                android:visibility="visible"></ImageView>
+            <ImageView
+                android:id="@+id/camera_off_btn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/off_btn"
+                android:visibility="invisible"></ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

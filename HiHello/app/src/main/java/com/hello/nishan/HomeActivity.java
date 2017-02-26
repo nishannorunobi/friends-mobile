@@ -32,11 +32,8 @@ import com.hello.nishan.test.SendRecordingStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
-    //LogWriter logger = LogWriter.getInstance();
     private BluetoothAdapter _bluetooth = null;
     private BluetoothSocket _socketHf = null;
     private BluetoothServerSocket _socketServer = null;
