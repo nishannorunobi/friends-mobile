@@ -14,10 +14,10 @@ import com.camera.nishan.selfie_stand.interfaces.OnFlashButtonClickListener;
 public class FlashController {
     private boolean isFlashOn;
     private boolean hasFlash;
-    private Camera camera;
-    private Camera.Parameters params;
     private Activity context;
     private OnFlashButtonClickListener onFlashButtonClickListener;
+    private Camera camera;
+    private Camera.Parameters params;
 
     public FlashController(Activity context, OnFlashButtonClickListener onFlashButtonClickListener){
         this.context = context;
@@ -26,7 +26,7 @@ public class FlashController {
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
-    public void makeFlash() {
+    public void changeFlashMode() {
         if (!hasFlash) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage("Your mobile does not support flashlight")
@@ -44,7 +44,6 @@ public class FlashController {
             turnOnFlash();
         }
     }
-
     private void turnOnFlash() {
         if (camera == null) {
             camera = Camera.open();
@@ -66,6 +65,7 @@ public class FlashController {
             params.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
             camera.setParameters(params);
             camera.stopPreview();
+            camera.release();
             isFlashOn = false;
         }
     }

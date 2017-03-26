@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 
 import com.camera.nishan.selfie_stand.R;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
@@ -30,11 +33,9 @@ public class PhotoViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         fragment = inflater.inflate(R.layout.photo_view_fragment, container, false);
         ivCard = (ImageView) fragment.findViewById(R.id.iv_card);
-        Bundle bundle = this.getArguments();
+        /*Bundle bundle = this.getArguments();
         data = bundle.getByteArray(TAKEN_PHOTO);
-        Bitmap image = BitmapFactory.decodeByteArray(data,0,data.length);
-        Drawable drawable = null;
-        drawable =  new BitmapDrawable(image);
+        Bitmap image = BitmapFactory.decodeByteArray(data,0,data.length);*/
         ivCard.setImageBitmap(getImage());
         return fragment;
     }
@@ -42,7 +43,8 @@ public class PhotoViewFragment extends Fragment {
     private Bitmap getImage(){
         Bitmap bitmap = null;
         try {
-            InputStream stream = getActivity().openFileInput("picture.jpg");
+            final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
+            InputStream stream = new FileInputStream(file);
             bitmap = BitmapFactory.decodeStream(stream);
             stream.close();
         } catch (Exception e) {

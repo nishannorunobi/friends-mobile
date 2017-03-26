@@ -1,5 +1,6 @@
 package com.camera.nishan.selfie_stand.controller;
 
+import android.app.Activity;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 
@@ -10,8 +11,10 @@ public class CameraController {
     private Camera camera = null;
     private boolean inPreview = false;
     private boolean cameraConfigured = false;
+    private Activity context;
 
-    public CameraController(){
+    public CameraController(Activity context){
+        this.context = context;
     }
 
     public SurfaceHolder.Callback getSurfaceCallback() {
